@@ -40,3 +40,6 @@ tasks/
 
 # OS
 .DS_Store
+
+# Claude Code local state
+.claude/

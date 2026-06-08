@@ -19,11 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-NOTE ON DATA: This repository does not redistribute third-party benchmark
-datasets (e.g., SST-2, AG News, TREC, Banking77, IMDB, Yelp, Emotion, DBpedia,
-or Kaggle corpora). Use the provided `fetch_*.py` scripts to obtain them from
-their original sources under their respective licenses. The authored Japanese
-sentiment set (in `cache_harness/dataset.py`) and all derived result files are
-released under the MIT License above.
