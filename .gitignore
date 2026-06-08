@@ -1,0 +1,42 @@
+# Third-party datasets — NOT redistributed (use fetch_*.py)
+data/
+
+# Large response cache (memoized LLM outputs)
+llm_cache.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.toc
+*.lof
+*.lot
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+_body.md
+_body.tex
+_body_ieee.tex
+paper_pandoc.md
+
+# pandoc intermediate
+paper.tex
+
+# Placeholder IEEE Access header logos (supply official assets or build on Overleaf)
+logo.png
+notaglinelogo.png
+jtehmLogo.png
+
+# Internal working notes
+tasks/
+
+# OS
+.DS_Store

@@ -1,0 +1,496 @@
+[
+  {
+    "task": "jp_sentiment_authored",
+    "n_classes": 3,
+    "lang": "ja",
+    "best_config": "dyn_char",
+    "dev_macro_f1": {
+      "zeroshot": 0.9165217391304349,
+      "dyn_char": 0.9440559440559441,
+      "dyn_embed": 0.9440559440559441,
+      "rules_only": 0.875,
+      "cache_embed": 0.8268907563025211
+    },
+    "distilled_rules": [
+      "[は10、説明書、木曜に、曜に行、曜と木、始まり] を含むなら「neutral」の可能性が高い（「positive」と誤りやすい）。",
+      "[気に入、大満足、で大満、買って、美しく、満足度] を含むなら「positive」の可能性が高い（「negative」と誤りやすい）。",
+      "[れて不、置され、望しま、放置さ、快でし、待たさ] を含むなら「negative」の可能性が高い（「positive」と誤りやすい）。",
+      "[は10、説明書、木曜に、曜に行、曜と木、始まり] を含むなら「neutral」の可能性が高い（「negative」と誤りやすい）。"
+    ],
+    "mcnemar_vs_zeroshot": {
+      "dyn_char": {
+        "b_base_only": 2,
+        "c_variant_only": 2,
+        "p_one_sided": 0.6875
+      },
+      "dyn_embed": {
+        "b_base_only": 0,
+        "c_variant_only": 3,
+        "p_one_sided": 0.125
+      },
+      "cache_embed": {
+        "b_base_only": 7,
+        "c_variant_only": 3,
+        "p_one_sided": 0.9453125
+      }
+    },
+    "test": {
+      "zeroshot": {
+        "acc": 0.9117647058823529,
+        "acc_ci": [
+          0.7703918204763959,
+          0.9695346096956899
+        ],
+        "macro_f1": 0.9138239538239539,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        }
+      },
+      "dyn_char": {
+        "acc": 0.9117647058823529,
+        "acc_ci": [
+          0.7703918204763959,
+          0.9695346096956899
+        ],
+        "macro_f1": 0.9133368538402863,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        }
+      },
+      "dyn_embed": {
+        "acc": 1.0,
+        "acc_ci": [
+          0.8984820937803899,
+          1.0
+        ],
+        "macro_f1": 1.0,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        }
+      },
+      "rules_only": {
+        "acc": 0.8529411764705882,
+        "acc_ci": [
+          0.6987161182594804,
+          0.9355065361737358
+        ],
+        "macro_f1": 0.8486177565124932,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        }
+      },
+      "cache_embed": {
+        "acc": 0.7941176470588235,
+        "acc_ci": [
+          0.6320128389178602,
+          0.8965060397764867
+        ],
+        "macro_f1": 0.7911764705882351,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        }
+      },
+      "escalation": {
+        "acc": 0.7941176470588235,
+        "acc_ci": [
+          0.6320128389178602,
+          0.8965060397764867
+        ],
+        "macro_f1": 0.7911764705882351,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        }
+      },
+      "nn_copy": {
+        "acc": 0.6470588235294118,
+        "acc_ci": [
+          0.4791365883001342,
+          0.7851228510470393
+        ],
+        "macro_f1": 0.6339031339031339,
+        "total_llm_calls": 0,
+        "route_counts": {
+          "nn_copy": 34
+        }
+      }
+    }
+  },
+  {
+    "task": "sst2",
+    "n_classes": 2,
+    "lang": "en",
+    "best_config": "dyn_embed",
+    "dev_macro_f1": {
+      "zeroshot": 0.9333333333333333,
+      "dyn_char": 0.9166435120866907,
+      "dyn_embed": 0.9499861072520146,
+      "rules_only": 0.8653198653198654,
+      "cache_embed": 0.9333333333333333
+    },
+    "distilled_rules": [
+      "If it contains [too, tired, out, becomes, one, thing], prefer \"negative\" (often misread as \"positive\").",
+      "If it contains [piece, enough, all, characters, something, without], prefer \"positive\" (often misread as \"negative\")."
+    ],
+    "mcnemar_vs_zeroshot": {
+      "dyn_char": {
+        "b_base_only": 13,
+        "c_variant_only": 7,
+        "p_one_sided": 0.9423408508300781
+      },
+      "dyn_embed": {
+        "b_base_only": 8,
+        "c_variant_only": 7,
+        "p_one_sided": 0.696380615234375
+      },
+      "cache_embed": {
+        "b_base_only": 8,
+        "c_variant_only": 9,
+        "p_one_sided": 0.5
+      }
+    },
+    "test": {
+      "zeroshot": {
+        "acc": 0.8833333333333333,
+        "acc_ci": [
+          0.8136649880680831,
+          0.9292194707890377
+        ],
+        "macro_f1": 0.8935,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "dyn_char": {
+        "acc": 0.8333333333333334,
+        "acc_ci": [
+          0.7565456060897621,
+          0.8894408798729517
+        ],
+        "macro_f1": 0.8368362056886647,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "dyn_embed": {
+        "acc": 0.875,
+        "acc_ci": [
+          0.8039690855177498,
+          0.9227657111903032
+        ],
+        "macro_f1": 0.8786944950273148,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "rules_only": {
+        "acc": 0.9,
+        "acc_ci": [
+          0.8333168001483641,
+          0.9418669830068924
+        ],
+        "macro_f1": 0.898989898989899,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "cache_embed": {
+        "acc": 0.8916666666666667,
+        "acc_ci": [
+          0.8234449199472612,
+          0.9355892010589275
+        ],
+        "macro_f1": 0.8916591429960414,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "escalation": {
+        "acc": 0.8916666666666667,
+        "acc_ci": [
+          0.8234449199472612,
+          0.9355892010589275
+        ],
+        "macro_f1": 0.8916591429960414,
+        "total_llm_calls": 118,
+        "route_counts": {
+          "student": 118,
+          "short_circuit": 2
+        }
+      },
+      "nn_copy": {
+        "acc": 0.775,
+        "acc_ci": [
+          0.6924293655773727,
+          0.8405094853418662
+        ],
+        "macro_f1": 0.7742317608529024,
+        "total_llm_calls": 0,
+        "route_counts": {
+          "nn_copy": 120
+        }
+      }
+    }
+  },
+  {
+    "task": "agnews",
+    "n_classes": 4,
+    "lang": "en",
+    "best_config": "cache_embed",
+    "dev_macro_f1": {
+      "zeroshot": 0.33564165497896215,
+      "dyn_char": 0.32881231671554256,
+      "dyn_embed": 0.3626855600539811,
+      "rules_only": 0.48210263835263834,
+      "cache_embed": 0.5482246952835188
+    },
+    "distilled_rules": [
+      "If it contains [game, win, team, cup, southern, second], prefer \"sports\" (often misread as \"world\").",
+      "If it contains [news, space, microsoft, windows, music, may], prefer \"scitech\" (often misread as \"world\").",
+      "If it contains [company, corp, inc, york, buy, tuesday], prefer \"business\" (often misread as \"world\").",
+      "If it contains [space, microsoft, windows, now, music, apple], prefer \"scitech\" (often misread as \"business\")."
+    ],
+    "mcnemar_vs_zeroshot": {
+      "dyn_char": {
+        "b_base_only": 9,
+        "c_variant_only": 2,
+        "p_one_sided": 0.994140625
+      },
+      "dyn_embed": {
+        "b_base_only": 9,
+        "c_variant_only": 6,
+        "p_one_sided": 0.84912109375
+      },
+      "cache_embed": {
+        "b_base_only": 12,
+        "c_variant_only": 26,
+        "p_one_sided": 0.016776219839812256
+      }
+    },
+    "test": {
+      "zeroshot": {
+        "acc": 0.325,
+        "acc_ci": [
+          0.24775726408835427,
+          0.41309983078122114
+        ],
+        "macro_f1": 0.26664511958629605,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "dyn_char": {
+        "acc": 0.26666666666666666,
+        "acc_ci": [
+          0.19568340354111466,
+          0.35212605628498583
+        ],
+        "macro_f1": 0.20011688311688314,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "dyn_embed": {
+        "acc": 0.3,
+        "acc_ci": [
+          0.2252550133867232,
+          0.3871530950356486
+        ],
+        "macro_f1": 0.2476977413038794,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "rules_only": {
+        "acc": 0.4083333333333333,
+        "acc_ci": [
+          0.32455990283507163,
+          0.4977938135251822
+        ],
+        "macro_f1": 0.4177244639666468,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "cache_embed": {
+        "acc": 0.44166666666666665,
+        "acc_ci": [
+          0.35599597315955417,
+          0.530956391796971
+        ],
+        "macro_f1": 0.4107291666666667,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "escalation": {
+        "acc": 0.5916666666666667,
+        "acc_ci": [
+          0.5022061864748177,
+          0.6754400971649285
+        ],
+        "macro_f1": 0.5906033805031446,
+        "total_llm_calls": 140,
+        "route_counts": {
+          "student_then_teacher": 20,
+          "student": 100
+        }
+      },
+      "nn_copy": {
+        "acc": 0.7583333333333333,
+        "acc_ci": [
+          0.6744968590361364,
+          0.8261426675849666
+        ],
+        "macro_f1": 0.7597257653061225,
+        "total_llm_calls": 0,
+        "route_counts": {
+          "nn_copy": 120
+        }
+      }
+    }
+  },
+  {
+    "task": "trec",
+    "n_classes": 6,
+    "lang": "en",
+    "best_config": "rules_only",
+    "dev_macro_f1": {
+      "zeroshot": 0.15892094017094016,
+      "dyn_char": 0.38115079365079363,
+      "dyn_embed": 0.401925012429214,
+      "rules_only": 0.4876576933502929,
+      "cache_embed": 0.4445569050832208
+    },
+    "distilled_rules": [
+      "If it contains [most, fear, word, songs, food, english], prefer \"entity\" (often misread as \"abbr\").",
+      "If it contains [how, why, day], prefer \"description\" (often misread as \"abbr\").",
+      "If it contains [where, city, find, country, world, web], prefer \"location\" (often misread as \"abbr\").",
+      "If it contains [actor, whose, titled, star, record, people], prefer \"human\" (often misread as \"abbr\")."
+    ],
+    "mcnemar_vs_zeroshot": {
+      "dyn_char": {
+        "b_base_only": 1,
+        "c_variant_only": 21,
+        "p_one_sided": 5.4836273193359375e-06
+      },
+      "dyn_embed": {
+        "b_base_only": 2,
+        "c_variant_only": 14,
+        "p_one_sided": 0.0020904541015625
+      },
+      "cache_embed": {
+        "b_base_only": 5,
+        "c_variant_only": 25,
+        "p_one_sided": 0.00016245711594820023
+      },
+      "rules_only": {
+        "b_base_only": 10,
+        "c_variant_only": 31,
+        "p_one_sided": 0.0007252455070556607
+      }
+    },
+    "test": {
+      "zeroshot": {
+        "acc": 0.225,
+        "acc_ci": [
+          0.1594905146581338,
+          0.3075706344226275
+        ],
+        "macro_f1": 0.1542589434385218,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "dyn_char": {
+        "acc": 0.39166666666666666,
+        "acc_ci": [
+          0.30899055515182583,
+          0.4810638369102923
+        ],
+        "macro_f1": 0.35685814113233466,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "dyn_embed": {
+        "acc": 0.325,
+        "acc_ci": [
+          0.24775726408835427,
+          0.41309983078122114
+        ],
+        "macro_f1": 0.28197665719883985,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "rules_only": {
+        "acc": 0.4,
+        "acc_ci": [
+          0.31676265239401125,
+          0.48944140181717477
+        ],
+        "macro_f1": 0.4269518249284845,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "cache_embed": {
+        "acc": 0.39166666666666666,
+        "acc_ci": [
+          0.30899055515182583,
+          0.4810638369102923
+        ],
+        "macro_f1": 0.36152736152736153,
+        "total_llm_calls": 120,
+        "route_counts": {
+          "student": 120
+        }
+      },
+      "escalation": {
+        "acc": 0.39166666666666666,
+        "acc_ci": [
+          0.30899055515182583,
+          0.4810638369102923
+        ],
+        "macro_f1": 0.36152736152736153,
+        "total_llm_calls": 118,
+        "route_counts": {
+          "short_circuit": 2,
+          "student": 118
+        }
+      },
+      "nn_copy": {
+        "acc": 0.6666666666666666,
+        "acc_ci": [
+          0.5783093452093498,
+          0.7446838977720069
+        ],
+        "macro_f1": 0.6574005523255148,
+        "total_llm_calls": 0,
+        "route_counts": {
+          "nn_copy": 120
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "task": "jp_sentiment_authored",
+    "n_classes": 3,
+    "n_fail": 12,
+    "n_lex_rules": 4,
+    "n_sem_rules": 4,
+    "sem_rules": [
+      "To choose \"neutral\" over \"positive\": If text describes time limits, prices, voltage specs, or shipping terms without emotional praise, classify as neutral.",
+      "To choose \"positive\" over \"negative\": 「満足度高」や「言うことなし」という肯定的な表現が含まれる場合は正しくポジティブと判定する。",
+      "To choose \"negative\" over \"positive\": 「期待したのにがっかり」や「大きかった」という表現が含まれる場合はネガティブと判定する。",
+      "To choose \"neutral\" over \"negative\": システム要件や容量指定を含む文は、中立と分類すべきです。"
+    ],
+    "arms": {
+      "zeroshot": 0.9117647058823529,
+      "failure-exemplars": 1.0,
+      "fail_v2-lexical": 0.8529411764705882,
+      "fail_v2-semantic": 0.9705882352941176,
+      "fail_v2-sem+gold": 0.9705882352941176
+    },
+    "cache_lr_gold": 0.7941176470588235
+  },
+  {
+    "task": "agnews",
+    "n_classes": 4,
+    "n_fail": 98,
+    "n_lex_rules": 4,
+    "n_sem_rules": 4,
+    "sem_rules": [
+      "To choose \"scitech\" over \"world\": Prioritize keywords like software code, broadband pipes, iPod, and Windows Media Player over general news topics to classify as scitech.",
+      "To choose \"sports\" over \"world\": Prioritize mentions of athletes, teams, scores, and specific sports events over general news topics to classify as \"sports\".",
+      "To choose \"business\" over \"world\": Classify as business if text mentions companies, stocks, judges approving settlements, or industrialists like Ratan Tata and Gazprom.",
+      "To choose \"scitech\" over \"business\": Prioritize mentions of specific tech products like Cisco, Microsoft patches, or VoIP over generic business terms to classify as scitech."
+    ],
+    "arms": {
+      "zeroshot": 0.33,
+      "failure-exemplars": 0.37,
+      "fail_v2-lexical": 0.39,
+      "fail_v2-semantic": 0.34,
+      "fail_v2-sem+gold": 0.41
+    },
+    "cache_lr_gold": 0.79
+  },
+  {
+    "task": "banking77",
+    "n_classes": 77,
+    "n_fail": 237,
+    "n_lex_rules": 4,
+    "n_sem_rules": 6,
+    "sem_rules": [
+      "To choose \"change_pin\" over \"pin_blocked\": If text asks about setting or changing a PIN, classify as change_pin instead of pin_blocked.",
+      "To choose \"passcode_forgotten\" over \"pin_blocked\": If text asks to reset or obtain a new code/password instead of reporting being locked out, classify as passcode_forgotten.",
+      "To choose \"get_physical_card\" over \"pin_blocked\": If text asks how to locate or retrieve a PIN/card, classify as get_physical_card instead of pin_blocked.",
+      "To choose \"top_up_limits\" over \"top_up_by_card_charge\": If text contains keywords like 'limit', 'maximum', or 'amount' regarding top-up capacity, classify as 'top_up_limits'.",
+      "To choose \"receiving_money\" over \"fiat_currency_support\": If text mentions salary or employer payment in GBP, classify as receiving_money instead of fiat_currency_support.",
+      "To choose \"transfer_fee_charged\" over \"exchange_charge\": If text mentions transfer or banking abroad fees instead of exchange rates, classify as transfer_fee_charged."
+    ],
+    "arms": {
+      "zeroshot": 0.32,
+      "failure-exemplars": 0.12,
+      "fail_v2-lexical": 0.31,
+      "fail_v2-semantic": 0.38,
+      "fail_v2-sem+gold": 0.13
+    },
+    "cache_lr_gold": 0.79
+  }
+]

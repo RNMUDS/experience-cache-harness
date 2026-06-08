@@ -1,0 +1,65 @@
+[
+  {
+    "task": "jp_sentiment_authored",
+    "n_classes": 3,
+    "n_fail_cases": 12,
+    "n_rules": 4,
+    "knowledge_chars": 266,
+    "rules": [
+      "[は10、説明書、木曜に、曜に行、曜と木、始まり] を含むなら「neutral」の可能性が高い（「positive」と誤りやすい）。",
+      "[気に入、大満足、で大満、買って、美しく、満足度] を含むなら「positive」の可能性が高い（「negative」と誤りやすい）。",
+      "[れて不、置され、望しま、放置さ、快でし、待たさ] を含むなら「negative」の可能性が高い（「positive」と誤りやすい）。",
+      "[は10、説明書、木曜に、曜に行、曜と木、始まり] を含むなら「neutral」の可能性が高い（「negative」と誤りやすい）。"
+    ],
+    "arms": {
+      "zeroshot": 0.9117647058823529,
+      "gold-exemplars": 1.0,
+      "failure-exemplars": 1.0,
+      "fail_v2-rules": 0.8529411764705882,
+      "fail_v2+gold-ex": 0.7941176470588235
+    },
+    "cache_lr_gold": 0.7941176470588235
+  },
+  {
+    "task": "agnews",
+    "n_classes": 4,
+    "n_fail_cases": 98,
+    "n_rules": 4,
+    "knowledge_chars": 440,
+    "rules": [
+      "If it contains [software, apple, space, microsoft, internet, computer], prefer \"scitech\" (often misread as \"world\").",
+      "If it contains [game, win, cup, season, over, southern], prefer \"sports\" (often misread as \"world\").",
+      "If it contains [company, corp, inc, growth, reported, earnings], prefer \"business\" (often misread as \"world\").",
+      "If it contains [apple, space, microsoft, computer, windows, used], prefer \"scitech\" (often misread as \"business\")."
+    ],
+    "arms": {
+      "zeroshot": 0.33,
+      "gold-exemplars": 0.28,
+      "failure-exemplars": 0.37,
+      "fail_v2-rules": 0.39,
+      "fail_v2+gold-ex": 0.43
+    },
+    "cache_lr_gold": 0.79
+  },
+  {
+    "task": "banking77",
+    "n_classes": 77,
+    "n_fail_cases": 237,
+    "n_rules": 4,
+    "knowledge_chars": 395,
+    "rules": [
+      "If it contains [change, need, country], prefer \"change_pin\" (often misread as \"pin_blocked\").",
+      "If it contains [passcode, where, reset, password], prefer \"passcode_forgotten\" (often misread as \"pin_blocked\").",
+      "If it contains [separately, find], prefer \"get_physical_card\" (often misread as \"pin_blocked\").",
+      "If it contains [limit, top], prefer \"top_up_limits\" (often misread as \"top_up_by_card_charge\")."
+    ],
+    "arms": {
+      "zeroshot": 0.32,
+      "gold-exemplars": 0.12,
+      "failure-exemplars": 0.12,
+      "fail_v2-rules": 0.31,
+      "fail_v2+gold-ex": 0.16
+    },
+    "cache_lr_gold": 0.79
+  }
+]

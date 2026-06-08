@@ -1,0 +1,202 @@
+[
+  {
+    "split": "same_theme",
+    "audit": {
+      "kind": "same_theme",
+      "n_train": 102,
+      "n_dev": 34,
+      "n_test": 34,
+      "exact_overlap": 0,
+      "edit_ratio": {
+        "max": 0.5263157894736842,
+        "mean": 0.39276183494489647,
+        "p90": 0.48
+      },
+      "retrieval_cosine": {
+        "max": 0.24526101345184206,
+        "mean": 0.11893844808056127,
+        "p90": 0.2175594078065914
+      }
+    },
+    "distilled_rules": [
+      "[は10、説明書、木曜に、曜に行、曜と木、始まり] を含むなら「neutral」の可能性が高い（「positive」と誤りやすい）。",
+      "[気に入、大満足、で大満、買って、美しく、満足度] を含むなら「positive」の可能性が高い（「negative」と誤りやすい）。",
+      "[れて不、置され、望しま、放置さ、快でし、待たさ] を含むなら「negative」の可能性が高い（「positive」と誤りやすい）。",
+      "[は10、説明書、木曜に、曜に行、曜と木、始まり] を含むなら「neutral」の可能性が高い（「negative」と誤りやすい）。"
+    ],
+    "embed_lr": 0.7941176470588235,
+    "reports": {
+      "zeroshot": {
+        "acc": 0.9117647058823529,
+        "acc_ci": [
+          0.7703918204763959,
+          0.9695346096956899
+        ],
+        "macro_f1": 0.9138239538239539,
+        "neutral_recall": 0.7857142857142857,
+        "neutral_precision": 1.0,
+        "novel_acc": 0.9117647058823529,
+        "novel_n": 34
+      },
+      "dyn_embed": {
+        "acc": 1.0,
+        "acc_ci": [
+          0.8984820937803899,
+          1.0
+        ],
+        "macro_f1": 1.0,
+        "neutral_recall": 1.0,
+        "neutral_precision": 1.0,
+        "novel_acc": 1.0,
+        "novel_n": 34
+      },
+      "cache(emb+rules)": {
+        "acc": 0.7941176470588235,
+        "acc_ci": [
+          0.6320128389178602,
+          0.8965060397764867
+        ],
+        "macro_f1": 0.7911764705882351,
+        "neutral_recall": 1.0,
+        "neutral_precision": 0.6666666666666666,
+        "novel_acc": 0.7941176470588235,
+        "novel_n": 34
+      },
+      "oracle-rules": {
+        "acc": 0.9705882352941176,
+        "acc_ci": [
+          0.8508409778365519,
+          0.9947892280744035
+        ],
+        "macro_f1": 0.9665831244778613,
+        "neutral_recall": 1.0,
+        "neutral_precision": 1.0,
+        "novel_acc": 0.9705882352941176,
+        "novel_n": 34
+      },
+      "corrupt-exemplar": {
+        "acc": 0.8235294117647058,
+        "acc_ci": [
+          0.6648593225994784,
+          0.9165114439643032
+        ],
+        "macro_f1": 0.8330692953118582,
+        "neutral_recall": 0.6428571428571429,
+        "neutral_precision": 1.0,
+        "novel_acc": 0.8235294117647058,
+        "novel_n": 34
+      },
+      "kNN(noLLM)": {
+        "acc": 0.6470588235294118,
+        "acc_ci": [
+          0.4791365883001342,
+          0.7851228510470393
+        ],
+        "macro_f1": 0.6339031339031339,
+        "neutral_recall": 0.7857142857142857,
+        "neutral_precision": 0.9166666666666666,
+        "novel_acc": 0.6470588235294118,
+        "novel_n": 34
+      }
+    }
+  },
+  {
+    "split": "loto",
+    "audit": {
+      "kind": "loto",
+      "n_train": 90,
+      "n_dev": 30,
+      "n_test": 50,
+      "exact_overlap": 0,
+      "edit_ratio": {
+        "max": 0.5333333333333333,
+        "mean": 0.38392901563761744,
+        "p90": 0.45454545454545453
+      },
+      "retrieval_cosine": {
+        "max": 0.2775466475679759,
+        "mean": 0.10661134111057885,
+        "p90": 0.1937339691217812
+      }
+    },
+    "distilled_rules": [
+      "[ポート、サポー、500、0円で、00円、置して] を含むなら「neutral」の可能性が高い（「positive」と誤りやすい）。",
+      "[500、0円で、00円、置して、文字で、位置し] を含むなら「neutral」の可能性が高い（「negative」と誤りやすい）。"
+    ],
+    "embed_lr": 0.64,
+    "reports": {
+      "zeroshot": {
+        "acc": 0.9,
+        "acc_ci": [
+          0.7863950966521162,
+          0.9565248760084288
+        ],
+        "macro_f1": 0.9038496624703521,
+        "neutral_recall": 0.8,
+        "neutral_precision": 1.0,
+        "novel_acc": 0.9,
+        "novel_n": 50
+      },
+      "dyn_embed": {
+        "acc": 0.92,
+        "acc_ci": [
+          0.811614974549363,
+          0.9684509967442093
+        ],
+        "macro_f1": 0.9194309302668436,
+        "neutral_recall": 0.9,
+        "neutral_precision": 1.0,
+        "novel_acc": 0.92,
+        "novel_n": 50
+      },
+      "cache(emb+rules)": {
+        "acc": 0.92,
+        "acc_ci": [
+          0.811614974549363,
+          0.9684509967442093
+        ],
+        "macro_f1": 0.9174849267872524,
+        "neutral_recall": 1.0,
+        "neutral_precision": 0.8695652173913043,
+        "novel_acc": 0.92,
+        "novel_n": 50
+      },
+      "oracle-rules": {
+        "acc": 0.94,
+        "acc_ci": [
+          0.8378265662912299,
+          0.9793854036353695
+        ],
+        "macro_f1": 0.9363372589179041,
+        "neutral_recall": 1.0,
+        "neutral_precision": 0.9090909090909091,
+        "novel_acc": 0.94,
+        "novel_n": 50
+      },
+      "corrupt-exemplar": {
+        "acc": 0.76,
+        "acc_ci": [
+          0.6258705062480764,
+          0.8570274759812778
+        ],
+        "macro_f1": 0.7684800119890601,
+        "neutral_recall": 0.5,
+        "neutral_precision": 0.9090909090909091,
+        "novel_acc": 0.76,
+        "novel_n": 50
+      },
+      "kNN(noLLM)": {
+        "acc": 0.56,
+        "acc_ci": [
+          0.4230578680014353,
+          0.6883801278976466
+        ],
+        "macro_f1": 0.5486232199941877,
+        "neutral_recall": 0.7,
+        "neutral_precision": 0.8235294117647058,
+        "novel_acc": 0.56,
+        "novel_n": 50
+      }
+    }
+  }
+]

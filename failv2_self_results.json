@@ -1,0 +1,58 @@
+[
+  {
+    "task": "jp_sentiment_authored",
+    "n_classes": 3,
+    "n_self_rules": 4,
+    "n_teacher_rules": 4,
+    "self_rules": [
+      "To choose \"neutral\" over \"positive\": The text contains specific technical specifications like voltage and delivery time but lacks any explicit mention of a product's intended use or purpose for human consumption.",
+      "To choose \"positive\" over \"negative\": The text contains a specific phrase indicating satisfaction with an action or situation without mentioning any negative aspects of it.",
+      "To choose \"negative\" over \"positive\": The text contains a specific phrase indicating strong emotion (\"falling down in fear\") which is typically associated with negative sentiment and should be flagged for classification as such.",
+      "To choose \"neutral\" over \"negative\": The text contains a specific instruction about installing software requiring gigabytes of free space."
+    ],
+    "arms": {
+      "zeroshot": 0.9117647058823529,
+      "fail_v2-self": 0.9411764705882353,
+      "fail_v2-teacher": 0.9705882352941176,
+      "fail_v2-self+gold": 1.0
+    }
+  },
+  {
+    "task": "agnews",
+    "n_classes": 4,
+    "n_self_rules": 4,
+    "n_teacher_rules": 4,
+    "self_rules": [
+      "To choose \"scitech\" over \"world\": Texts about software sharing and tech news are classified as scitech; text about music releases is classified as world.",
+      "To choose \"sports\" over \"world\": Serena Williams' text contains specific sports-related keywords like 'micro-mini', 'racket', and 'US &lt;b&gt;...&lt;/b&gt;' which are absent in the misclassified texts, allowing a classifier to distinguish \"sports\" from \"world\".",
+      "To choose \"business\" over \"world\": Ratan Tata is identified by his name in business contexts; other names like Judge Won or Frank Holmes are not associated with industry leadership.",
+      "To choose \"scitech\" over \"business\": Cisco and Microsoft use specific keywords like 'routing architecture' or 'Service Pack', while Yahoo! uses 'catch-up'. New York firms mention avoiding RNC crowds with portable phones to help business avoid it."
+    ],
+    "arms": {
+      "zeroshot": 0.33,
+      "fail_v2-self": 0.2,
+      "fail_v2-teacher": 0.34,
+      "fail_v2-self+gold": 0.34
+    }
+  },
+  {
+    "task": "banking77",
+    "n_classes": 77,
+    "n_self_rules": 6,
+    "n_teacher_rules": 6,
+    "self_rules": [
+      "To choose \"change_pin\" over \"pin_blocked\": If you are not in your country and need to change a PIN, use this: Change it online or via phone; do NOT send text messages directly from abroad as they may be blocked by local SIMs.",
+      "To choose \"passcode_forgotten\" over \"pin_blocked\": If you ask for help resetting your password or looking up a lost one, classify it as passcode_forgotten; otherwise, treat it as pin_blocked.",
+      "To choose \"get_physical_card\" over \"pin_blocked\": If you ask about finding a PIN or going into an app to find it, classify this text as get_physical_card instead of pin_blocked.",
+      "To choose \"top_up_limits\" over \"top_up_by_card_charge\": Check if text mentions specific card charges or limits; otherwise assume top-up_limits.",
+      "To choose \"receiving_money\" over \"fiat_currency_support\": If you receive money in a foreign currency like GBP or EUR, do not send it to your bank; instead, use an app to declare this as receiving money so they can process payment directly from their account without manual intervention.",
+      "To choose \"transfer_fee_charged\" over \"exchange_charge\": If you ask about banking abroad or transfer fees specifically, classify it as transfer_fee_charged; otherwise check exchange charges."
+    ],
+    "arms": {
+      "zeroshot": 0.32,
+      "fail_v2-self": 0.41,
+      "fail_v2-teacher": 0.38,
+      "fail_v2-self+gold": 0.12
+    }
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "task": "jp_sentiment_authored",
+    "n_classes": 3,
+    "n_fail_rules": 4,
+    "n_success_rules": 3,
+    "success_rules": [
+      "A text is \"neutral\" if: Neutral texts state objective facts like hours or prices without expressing opinions or emotions.",
+      "A text is \"positive\" if: 顧客満足、感激、安心や喜びといった肯定的な感情を表現するテキストです。",
+      "A text is \"negative\" if: 不満や失望、不快感を表現し、サービス品質への否定的な評価を含むテキストです。"
+    ],
+    "arms": {
+      "zeroshot": 0.9117647058823529,
+      "fail-rules": 0.9705882352941176,
+      "success-rules": 0.9705882352941176,
+      "both-rules": 1.0
+    }
+  },
+  {
+    "task": "agnews",
+    "n_classes": 4,
+    "n_fail_rules": 4,
+    "n_success_rules": 4,
+    "success_rules": [
+      "A text is \"world\" if: Texts must report on international events involving multiple countries or global political issues outside local domestic affairs.",
+      "A text is \"business\" if: Texts describe corporate activities like mergers, acquisitions, financial earnings, and employment policy changes within commercial organizations.",
+      "A text is \"sports\" if: Texts must report on professional athletic competitions involving teams like Giants or Cubs and include game scores or player statistics.",
+      "A text is \"scitech\" if: Texts must discuss scientific or technological topics like innovations and start-ups within contexts such as Silicon Valley news."
+    ],
+    "arms": {
+      "zeroshot": 0.33,
+      "fail-rules": 0.34,
+      "success-rules": 0.25,
+      "both-rules": 0.4
+    }
+  },
+  {
+    "task": "banking77",
+    "n_classes": 77,
+    "n_fail_rules": 6,
+    "n_success_rules": 6,
+    "success_rules": [
+      "A text is \"get_disposable_virtual_card\" if: Texts must ask how to obtain, where to find, or explain benefits of ordering a disposable virtual card.",
+      "A text is \"lost_or_stolen_card\" if: Texts must explicitly state that a payment card has been lost or stolen using direct verbs like 'lose' or synonyms such as 'stole'.",
+      "A text is \"pin_blocked\" if: Texts describe situations where incorrect PIN entries caused lockout or inquire about unblocking/unlocking procedures due to being blocked.",
+      "A text is \"Refund_not_showing_up\" if: User reports requesting or expecting a refund that has not yet appeared in their account statement.",
+      "A text is \"exchange_charge\" if: Texts must explicitly inquire about fees, costs, pay structures, or discounts related to currency exchange transactions.",
+      "A text is \"transfer_timing\" if: Texts must explicitly ask about or state the duration required for money transfers between specific locations."
+    ],
+    "arms": {
+      "zeroshot": 0.32,
+      "fail-rules": 0.38,
+      "success-rules": 0.25,
+      "both-rules": 0.34
+    }
+  }
+]

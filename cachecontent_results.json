@@ -1,0 +1,98 @@
+[
+  {
+    "task": "jp_sentiment_authored",
+    "n_classes": 3,
+    "n_train": 102,
+    "model_train_acc": 0.8823529411764706,
+    "contents": {
+      "gold-all": {
+        "size": 102,
+        "knn": 0.6764705882352942,
+        "embed_lr": 0.7941176470588235,
+        "llm_dyn": 1.0
+      },
+      "failure": {
+        "size": 12,
+        "knn": 0.4117647058823529,
+        "embed_lr": 0.4117647058823529,
+        "llm_dyn": 1.0
+      },
+      "self-resp": {
+        "size": 102,
+        "knn": 0.5882352941176471,
+        "embed_lr": 0.6176470588235294,
+        "llm_dyn": 0.9705882352941176
+      },
+      "gold-match": {
+        "size": 12,
+        "knn": 0.5588235294117647,
+        "embed_lr": 0.5588235294117647,
+        "llm_dyn": 0.9705882352941176
+      }
+    }
+  },
+  {
+    "task": "agnews",
+    "n_classes": 4,
+    "n_train": 180,
+    "model_train_acc": 0.4222222222222222,
+    "contents": {
+      "gold-all": {
+        "size": 180,
+        "knn": 0.77,
+        "embed_lr": 0.79,
+        "llm_dyn": 0.28
+      },
+      "failure": {
+        "size": 98,
+        "knn": 0.63,
+        "embed_lr": 0.64,
+        "llm_dyn": 0.37
+      },
+      "self-resp": {
+        "size": 174,
+        "knn": 0.34,
+        "embed_lr": 0.27,
+        "llm_dyn": 0.21
+      },
+      "gold-match": {
+        "size": 98,
+        "knn": 0.8,
+        "embed_lr": 0.8,
+        "llm_dyn": 0.29
+      }
+    }
+  },
+  {
+    "task": "banking77",
+    "n_classes": 77,
+    "n_train": 385,
+    "model_train_acc": 0.3168831168831169,
+    "contents": {
+      "gold-all": {
+        "size": 385,
+        "knn": 0.75,
+        "embed_lr": 0.79,
+        "llm_dyn": 0.12
+      },
+      "failure": {
+        "size": 237,
+        "knn": 0.57,
+        "embed_lr": 0.57,
+        "llm_dyn": 0.12
+      },
+      "self-resp": {
+        "size": 359,
+        "knn": 0.29,
+        "embed_lr": 0.22,
+        "llm_dyn": 0.17
+      },
+      "gold-match": {
+        "size": 237,
+        "knn": 0.61,
+        "embed_lr": 0.67,
+        "llm_dyn": 0.13
+      }
+    }
+  }
+]

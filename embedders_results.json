@@ -1,0 +1,156 @@
+[
+  {
+    "task": "ext_imdb",
+    "n_classes": 2,
+    "by_embedder": {
+      "nomic-embed-text": {
+        "knn": 0.8066666666666666,
+        "embed_lr": 0.8133333333333334
+      },
+      "bge-m3": {
+        "knn": 0.7866666666666666,
+        "embed_lr": 0.8066666666666666
+      },
+      "mxbai-embed-large": {
+        "knn": 0.8466666666666667,
+        "embed_lr": 0.84
+      },
+      "all-minilm": {
+        "knn": 0.6266666666666667,
+        "embed_lr": 0.6533333333333333
+      }
+    }
+  },
+  {
+    "task": "ext_airline",
+    "n_classes": 3,
+    "by_embedder": {
+      "nomic-embed-text": {
+        "knn": 0.4866666666666667,
+        "embed_lr": 0.6466666666666666
+      },
+      "bge-m3": {
+        "knn": 0.6333333333333333,
+        "embed_lr": 0.7066666666666667
+      },
+      "mxbai-embed-large": {
+        "knn": 0.6066666666666667,
+        "embed_lr": 0.7133333333333334
+      },
+      "all-minilm": {
+        "knn": 0.5133333333333333,
+        "embed_lr": 0.5933333333333334
+      }
+    }
+  },
+  {
+    "task": "ext_tweet",
+    "n_classes": 3,
+    "by_embedder": {
+      "nomic-embed-text": {
+        "knn": 0.4866666666666667,
+        "embed_lr": 0.5066666666666667
+      },
+      "bge-m3": {
+        "knn": 0.5266666666666666,
+        "embed_lr": 0.5333333333333333
+      },
+      "mxbai-embed-large": {
+        "knn": 0.5,
+        "embed_lr": 0.5533333333333333
+      },
+      "all-minilm": {
+        "knn": 0.4266666666666667,
+        "embed_lr": 0.5
+      }
+    }
+  },
+  {
+    "task": "ext_yelp",
+    "n_classes": 5,
+    "by_embedder": {
+      "nomic-embed-text": {
+        "knn": 0.49333333333333335,
+        "embed_lr": 0.5666666666666667
+      },
+      "bge-m3": {
+        "knn": 0.49333333333333335,
+        "embed_lr": 0.56
+      },
+      "mxbai-embed-large": {
+        "knn": 0.49333333333333335,
+        "embed_lr": 0.5666666666666667
+      },
+      "all-minilm": {
+        "knn": 0.3333333333333333,
+        "embed_lr": 0.37333333333333335
+      }
+    }
+  },
+  {
+    "task": "ext_emotion",
+    "n_classes": 6,
+    "by_embedder": {
+      "nomic-embed-text": {
+        "knn": 0.44,
+        "embed_lr": 0.5466666666666666
+      },
+      "bge-m3": {
+        "knn": 0.4266666666666667,
+        "embed_lr": 0.48
+      },
+      "mxbai-embed-large": {
+        "knn": 0.41333333333333333,
+        "embed_lr": 0.48
+      },
+      "all-minilm": {
+        "knn": 0.34,
+        "embed_lr": 0.38666666666666666
+      }
+    }
+  },
+  {
+    "task": "ext_dbpedia",
+    "n_classes": 14,
+    "by_embedder": {
+      "nomic-embed-text": {
+        "knn": 0.9071428571428571,
+        "embed_lr": 0.9428571428571428
+      },
+      "bge-m3": {
+        "knn": 0.8642857142857143,
+        "embed_lr": 0.9285714285714286
+      },
+      "mxbai-embed-large": {
+        "knn": 0.8357142857142857,
+        "embed_lr": 0.9071428571428571
+      },
+      "all-minilm": {
+        "knn": 0.8357142857142857,
+        "embed_lr": 0.8857142857142857
+      }
+    }
+  },
+  {
+    "task": "banking77",
+    "n_classes": 77,
+    "by_embedder": {
+      "nomic-embed-text": {
+        "knn": 0.78,
+        "embed_lr": 0.8266666666666667
+      },
+      "bge-m3": {
+        "knn": 0.7866666666666666,
+        "embed_lr": 0.84
+      },
+      "mxbai-embed-large": {
+        "knn": 0.86,
+        "embed_lr": 0.8933333333333333
+      },
+      "all-minilm": {
+        "knn": 0.7666666666666667,
+        "embed_lr": 0.8533333333333334
+      }
+    }
+  }
+]

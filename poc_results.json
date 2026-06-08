@@ -1,0 +1,29 @@
+[
+  {
+    "name": "A) 0.8B think=false +JSONプロンプト",
+    "n": 24,
+    "valid": 1.0,
+    "raw": 1.0,
+    "acc": 0.7916666666666666,
+    "lat": 0.30930272738138836,
+    "errors": 0
+  },
+  {
+    "name": "B) 0.8B think=false +format文法",
+    "n": 24,
+    "valid": 0.0,
+    "raw": 0.0,
+    "acc": 0.0,
+    "lat": 0.1383812129497528,
+    "errors": 0
+  },
+  {
+    "name": "C) coder 非thinking +format文法",
+    "n": 24,
+    "valid": 1.0,
+    "raw": 1.0,
+    "acc": 1.0,
+    "lat": 0.826309730609258,
+    "errors": 0
+  }
+]

@@ -1,0 +1,854 @@
+[
+  {
+    "split": "same_theme",
+    "audit": {
+      "kind": "same_theme",
+      "n_train": 102,
+      "n_dev": 34,
+      "n_test": 34,
+      "exact_overlap": 0,
+      "edit_ratio": {
+        "max": 0.5263157894736842,
+        "mean": 0.39276183494489647,
+        "p90": 0.48
+      },
+      "retrieval_cosine": {
+        "max": 0.24526101345184206,
+        "mean": 0.11893844808056127,
+        "p90": 0.2175594078065914
+      }
+    },
+    "distilled_rules": [
+      "評価や感情を表す語を含まず、時刻・価格・寸法・数量・日時・場所などの客観的事実を述べるだけの文は neutral。 手がかりの語例: は10、だけま、れてい。"
+    ],
+    "reports": {
+      "a:baseline(0.8B)": {
+        "accuracy": 0.7352941176470589,
+        "acc_ci": [
+          0.5688253783710155,
+          0.8539897245844621
+        ],
+        "macro_f1": 0.7326278659611992,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.9,
+          "neutral": 0.42857142857142855,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 0.8181818181818182,
+          "neutral": 1.0,
+          "positive": 0.5882352941176471
+        },
+        "novel_accuracy": 0.7352941176470589,
+        "novel_n": 34,
+        "median_latency": 0.3543281555175781,
+        "p90_latency": 0.45758914947509766,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        },
+        "confusion": {
+          "positive": {
+            "positive": 10
+          },
+          "negative": {
+            "negative": 9,
+            "positive": 1
+          },
+          "neutral": {
+            "neutral": 6,
+            "positive": 6,
+            "negative": 2
+          }
+        }
+      },
+      "b:static-kshot": {
+        "accuracy": 0.9117647058823529,
+        "acc_ci": [
+          0.7703918204763959,
+          0.9695346096956899
+        ],
+        "macro_f1": 0.91511607301081,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.9,
+          "neutral": 0.8571428571428571,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 0.9230769230769231,
+          "positive": 0.8333333333333334
+        },
+        "novel_accuracy": 0.9117647058823529,
+        "novel_n": 34,
+        "median_latency": 0.3298971652984619,
+        "p90_latency": 0.48345494270324707,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        },
+        "confusion": {
+          "positive": {
+            "positive": 10
+          },
+          "negative": {
+            "negative": 9,
+            "neutral": 1
+          },
+          "neutral": {
+            "neutral": 12,
+            "positive": 2
+          }
+        }
+      },
+      "c:dynamic-kshot": {
+        "accuracy": 0.8529411764705882,
+        "acc_ci": [
+          0.6987161182594804,
+          0.9355065361737358
+        ],
+        "macro_f1": 0.8602339181286549,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.9,
+          "neutral": 0.7142857142857143,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 1.0,
+          "positive": 0.6666666666666666
+        },
+        "novel_accuracy": 0.8529411764705882,
+        "novel_n": 34,
+        "median_latency": 0.3194401264190674,
+        "p90_latency": 0.5109560489654541,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        },
+        "confusion": {
+          "positive": {
+            "positive": 10
+          },
+          "negative": {
+            "negative": 9,
+            "positive": 1
+          },
+          "neutral": {
+            "neutral": 10,
+            "positive": 4
+          }
+        }
+      },
+      "d:rules-only(k0)": {
+        "accuracy": 0.9705882352941176,
+        "acc_ci": [
+          0.8508409778365519,
+          0.9947892280744035
+        ],
+        "macro_f1": 0.9709618874773139,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.9,
+          "neutral": 1.0,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 0.9333333333333333,
+          "positive": 1.0
+        },
+        "novel_accuracy": 0.9705882352941176,
+        "novel_n": 34,
+        "median_latency": 0.3352499008178711,
+        "p90_latency": 0.455826997756958,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        },
+        "confusion": {
+          "positive": {
+            "positive": 10
+          },
+          "negative": {
+            "negative": 9,
+            "neutral": 1
+          },
+          "neutral": {
+            "neutral": 14
+          }
+        }
+      },
+      "e:dynamic+rules": {
+        "accuracy": 0.9411764705882353,
+        "acc_ci": [
+          0.8090606311053629,
+          0.9837176869361575
+        ],
+        "macro_f1": 0.9427736006683375,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.9,
+          "neutral": 0.9285714285714286,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 0.9285714285714286,
+          "positive": 0.9090909090909091
+        },
+        "novel_accuracy": 0.9411764705882353,
+        "novel_n": 34,
+        "median_latency": 0.32581400871276855,
+        "p90_latency": 0.42471909523010254,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        },
+        "confusion": {
+          "positive": {
+            "positive": 10
+          },
+          "negative": {
+            "negative": 9,
+            "neutral": 1
+          },
+          "neutral": {
+            "neutral": 13,
+            "positive": 1
+          }
+        }
+      },
+      "f:+short-circuit": {
+        "accuracy": 0.9411764705882353,
+        "acc_ci": [
+          0.8090606311053629,
+          0.9837176869361575
+        ],
+        "macro_f1": 0.9427736006683375,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.9,
+          "neutral": 0.9285714285714286,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 0.9285714285714286,
+          "positive": 0.9090909090909091
+        },
+        "novel_accuracy": 0.9411764705882353,
+        "novel_n": 34,
+        "median_latency": 0.32581400871276855,
+        "p90_latency": 0.42471909523010254,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        },
+        "confusion": {
+          "positive": {
+            "positive": 10
+          },
+          "negative": {
+            "negative": 9,
+            "neutral": 1
+          },
+          "neutral": {
+            "neutral": 13,
+            "positive": 1
+          }
+        }
+      },
+      "g:+escalation": {
+        "accuracy": 1.0,
+        "acc_ci": [
+          0.8984820937803899,
+          1.0
+        ],
+        "macro_f1": 1.0,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 1.0,
+          "neutral": 1.0,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 1.0,
+          "positive": 1.0
+        },
+        "novel_accuracy": 1.0,
+        "novel_n": 34,
+        "median_latency": 0.5993971824645996,
+        "p90_latency": 0.7213129997253418,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "teacher": 34
+        },
+        "confusion": {
+          "positive": {
+            "positive": 10
+          },
+          "negative": {
+            "negative": 10
+          },
+          "neutral": {
+            "neutral": 14
+          }
+        }
+      },
+      "h:nn-copy(noLLM)": {
+        "accuracy": 0.5882352941176471,
+        "acc_ci": [
+          0.42221304146519273,
+          0.7363426221431114
+        ],
+        "macro_f1": 0.5748148148148149,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.4,
+          "neutral": 0.6428571428571429,
+          "positive": 0.7
+        },
+        "per_class_precision": {
+          "negative": 0.5,
+          "neutral": 0.8181818181818182,
+          "positive": 0.4666666666666667
+        },
+        "novel_accuracy": 0.5882352941176471,
+        "novel_n": 34,
+        "median_latency": 0.0010228157043457031,
+        "p90_latency": 0.002079010009765625,
+        "total_llm_calls": 0,
+        "route_counts": {
+          "nn_copy": 34
+        },
+        "confusion": {
+          "positive": {
+            "positive": 7,
+            "neutral": 1,
+            "negative": 2
+          },
+          "negative": {
+            "negative": 4,
+            "neutral": 1,
+            "positive": 5
+          },
+          "neutral": {
+            "neutral": 9,
+            "negative": 2,
+            "positive": 3
+          }
+        }
+      },
+      "i:corrupt-exemplar": {
+        "accuracy": 0.8235294117647058,
+        "acc_ci": [
+          0.6648593225994784,
+          0.9165114439643032
+        ],
+        "macro_f1": 0.8321678321678322,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 1.0,
+          "neutral": 0.5714285714285714,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 1.0,
+          "positive": 0.625
+        },
+        "novel_accuracy": 0.8235294117647058,
+        "novel_n": 34,
+        "median_latency": 0.3610701560974121,
+        "p90_latency": 0.5121259689331055,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        },
+        "confusion": {
+          "positive": {
+            "positive": 10
+          },
+          "negative": {
+            "negative": 10
+          },
+          "neutral": {
+            "neutral": 8,
+            "positive": 6
+          }
+        }
+      },
+      "j:oracle-rules": {
+        "accuracy": 0.9705882352941176,
+        "acc_ci": [
+          0.8508409778365519,
+          0.9947892280744035
+        ],
+        "macro_f1": 0.9665831244778613,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.9,
+          "neutral": 1.0,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 1.0,
+          "positive": 0.9090909090909091
+        },
+        "novel_accuracy": 0.9705882352941176,
+        "novel_n": 34,
+        "median_latency": 0.40895724296569824,
+        "p90_latency": 0.5009708404541016,
+        "total_llm_calls": 34,
+        "route_counts": {
+          "student": 34
+        },
+        "confusion": {
+          "positive": {
+            "positive": 10
+          },
+          "negative": {
+            "negative": 9,
+            "positive": 1
+          },
+          "neutral": {
+            "neutral": 14
+          }
+        }
+      }
+    }
+  },
+  {
+    "split": "loto",
+    "audit": {
+      "kind": "loto",
+      "n_train": 90,
+      "n_dev": 30,
+      "n_test": 50,
+      "exact_overlap": 0,
+      "edit_ratio": {
+        "max": 0.5333333333333333,
+        "mean": 0.38392901563761744,
+        "p90": 0.45454545454545453
+      },
+      "retrieval_cosine": {
+        "max": 0.2775466475679759,
+        "mean": 0.10661134111057885,
+        "p90": 0.1937339691217812
+      }
+    },
+    "distilled_rules": [
+      "評価や感情を表す語を含まず、時刻・価格・寸法・数量・日時・場所などの客観的事実を述べるだけの文は neutral。 手がかりの語例: してい、80円、0円で。"
+    ],
+    "reports": {
+      "a:baseline(0.8B)": {
+        "accuracy": 0.72,
+        "acc_ci": [
+          0.5833461285401033,
+          0.8252598564231964
+        ],
+        "macro_f1": 0.7272727272727272,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.8666666666666667,
+          "neutral": 0.4,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 1.0,
+          "positive": 0.5172413793103449
+        },
+        "novel_accuracy": 0.72,
+        "novel_n": 50,
+        "median_latency": 0.35078930854797363,
+        "p90_latency": 0.4948883056640625,
+        "total_llm_calls": 50,
+        "route_counts": {
+          "student": 50
+        },
+        "confusion": {
+          "positive": {
+            "positive": 15
+          },
+          "negative": {
+            "negative": 13,
+            "positive": 2
+          },
+          "neutral": {
+            "neutral": 8,
+            "positive": 12
+          }
+        }
+      },
+      "b:static-kshot": {
+        "accuracy": 0.92,
+        "acc_ci": [
+          0.811614974549363,
+          0.9684509967442093
+        ],
+        "macro_f1": 0.9222630338248999,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.9333333333333333,
+          "neutral": 0.85,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 1.0,
+          "positive": 0.7894736842105263
+        },
+        "novel_accuracy": 0.92,
+        "novel_n": 50,
+        "median_latency": 0.34647512435913086,
+        "p90_latency": 0.4564530849456787,
+        "total_llm_calls": 50,
+        "route_counts": {
+          "student": 50
+        },
+        "confusion": {
+          "positive": {
+            "positive": 15
+          },
+          "negative": {
+            "negative": 14,
+            "positive": 1
+          },
+          "neutral": {
+            "neutral": 17,
+            "positive": 3
+          }
+        }
+      },
+      "c:dynamic-kshot": {
+        "accuracy": 0.86,
+        "acc_ci": [
+          0.7381354280147191,
+          0.9304925473797714
+        ],
+        "macro_f1": 0.8623623623623624,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.8,
+          "neutral": 0.8,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 0.9411764705882353,
+          "positive": 0.7142857142857143
+        },
+        "novel_accuracy": 0.86,
+        "novel_n": 50,
+        "median_latency": 0.3505380153656006,
+        "p90_latency": 0.5186340808868408,
+        "total_llm_calls": 50,
+        "route_counts": {
+          "student": 50
+        },
+        "confusion": {
+          "positive": {
+            "positive": 15
+          },
+          "negative": {
+            "negative": 12,
+            "positive": 2,
+            "neutral": 1
+          },
+          "neutral": {
+            "neutral": 16,
+            "positive": 4
+          }
+        }
+      },
+      "d:rules-only(k0)": {
+        "accuracy": 0.94,
+        "acc_ci": [
+          0.8378265662912299,
+          0.9793854036353695
+        ],
+        "macro_f1": 0.9363372589179041,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.8,
+          "neutral": 1.0,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 0.9090909090909091,
+          "positive": 0.9375
+        },
+        "novel_accuracy": 0.94,
+        "novel_n": 50,
+        "median_latency": 0.35472893714904785,
+        "p90_latency": 0.4542081356048584,
+        "total_llm_calls": 50,
+        "route_counts": {
+          "student": 50
+        },
+        "confusion": {
+          "positive": {
+            "positive": 15
+          },
+          "negative": {
+            "negative": 12,
+            "positive": 1,
+            "neutral": 2
+          },
+          "neutral": {
+            "neutral": 20
+          }
+        }
+      },
+      "e:dynamic+rules": {
+        "accuracy": 0.94,
+        "acc_ci": [
+          0.8378265662912299,
+          0.9793854036353695
+        ],
+        "macro_f1": 0.9363372589179041,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.8,
+          "neutral": 1.0,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 0.9090909090909091,
+          "positive": 0.9375
+        },
+        "novel_accuracy": 0.94,
+        "novel_n": 50,
+        "median_latency": 0.3473336696624756,
+        "p90_latency": 0.4306190013885498,
+        "total_llm_calls": 50,
+        "route_counts": {
+          "student": 50
+        },
+        "confusion": {
+          "positive": {
+            "positive": 15
+          },
+          "negative": {
+            "negative": 12,
+            "positive": 1,
+            "neutral": 2
+          },
+          "neutral": {
+            "neutral": 20
+          }
+        }
+      },
+      "f:+short-circuit": {
+        "accuracy": 0.94,
+        "acc_ci": [
+          0.8378265662912299,
+          0.9793854036353695
+        ],
+        "macro_f1": 0.9363372589179041,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.8,
+          "neutral": 1.0,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 0.9090909090909091,
+          "positive": 0.9375
+        },
+        "novel_accuracy": 0.94,
+        "novel_n": 50,
+        "median_latency": 0.3473336696624756,
+        "p90_latency": 0.4306190013885498,
+        "total_llm_calls": 50,
+        "route_counts": {
+          "student": 50
+        },
+        "confusion": {
+          "positive": {
+            "positive": 15
+          },
+          "negative": {
+            "negative": 12,
+            "positive": 1,
+            "neutral": 2
+          },
+          "neutral": {
+            "neutral": 20
+          }
+        }
+      },
+      "g:+escalation": {
+        "accuracy": 0.98,
+        "acc_ci": [
+          0.8950431352816304,
+          0.9964608319110234
+        ],
+        "macro_f1": 0.9803756658256239,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.9333333333333333,
+          "neutral": 1.0,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 0.9523809523809523,
+          "positive": 1.0
+        },
+        "novel_accuracy": 0.98,
+        "novel_n": 50,
+        "median_latency": 0.6005017757415771,
+        "p90_latency": 0.6959030628204346,
+        "total_llm_calls": 50,
+        "route_counts": {
+          "teacher": 50
+        },
+        "confusion": {
+          "positive": {
+            "positive": 15
+          },
+          "negative": {
+            "negative": 14,
+            "neutral": 1
+          },
+          "neutral": {
+            "neutral": 20
+          }
+        }
+      },
+      "h:nn-copy(noLLM)": {
+        "accuracy": 0.64,
+        "acc_ci": [
+          0.5014076201030194,
+          0.7586143703281713
+        ],
+        "macro_f1": 0.5991391678622668,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.3333333333333333,
+          "neutral": 0.95,
+          "positive": 0.5333333333333333
+        },
+        "per_class_precision": {
+          "negative": 0.5,
+          "neutral": 0.9047619047619048,
+          "positive": 0.42105263157894735
+        },
+        "novel_accuracy": 0.64,
+        "novel_n": 50,
+        "median_latency": 0.0007941722869873047,
+        "p90_latency": 0.0014960765838623047,
+        "total_llm_calls": 0,
+        "route_counts": {
+          "nn_copy": 50
+        },
+        "confusion": {
+          "positive": {
+            "positive": 8,
+            "negative": 5,
+            "neutral": 2
+          },
+          "negative": {
+            "negative": 5,
+            "positive": 10
+          },
+          "neutral": {
+            "neutral": 19,
+            "positive": 1
+          }
+        }
+      },
+      "i:corrupt-exemplar": {
+        "accuracy": 0.7,
+        "acc_ci": [
+          0.562493877226366,
+          0.8089661091039063
+        ],
+        "macro_f1": 0.6979074565281462,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.9333333333333333,
+          "neutral": 0.3,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 1.0,
+          "positive": 0.5
+        },
+        "novel_accuracy": 0.7,
+        "novel_n": 50,
+        "median_latency": 0.35306406021118164,
+        "p90_latency": 0.5192062854766846,
+        "total_llm_calls": 50,
+        "route_counts": {
+          "student": 50
+        },
+        "confusion": {
+          "positive": {
+            "positive": 15
+          },
+          "negative": {
+            "negative": 14,
+            "positive": 1
+          },
+          "neutral": {
+            "positive": 14,
+            "neutral": 6
+          }
+        }
+      },
+      "j:oracle-rules": {
+        "accuracy": 0.96,
+        "acc_ci": [
+          0.8653966212204532,
+          0.9889613473391734
+        ],
+        "macro_f1": 0.9573077067176202,
+        "valid_rate": 1.0,
+        "per_class_recall": {
+          "negative": 0.8666666666666667,
+          "neutral": 1.0,
+          "positive": 1.0
+        },
+        "per_class_precision": {
+          "negative": 1.0,
+          "neutral": 0.9523809523809523,
+          "positive": 0.9375
+        },
+        "novel_accuracy": 0.96,
+        "novel_n": 50,
+        "median_latency": 0.39981698989868164,
+        "p90_latency": 0.5113327503204346,
+        "total_llm_calls": 50,
+        "route_counts": {
+          "student": 50
+        },
+        "confusion": {
+          "positive": {
+            "positive": 15
+          },
+          "negative": {
+            "negative": 13,
+            "neutral": 1,
+            "positive": 1
+          },
+          "neutral": {
+            "neutral": 20
+          }
+        }
+      }
+    }
+  }
+]

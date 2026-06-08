@@ -1,0 +1,65 @@
+{
+  "windows": [
+    {
+      "window": "0-50",
+      "acc": 0.92,
+      "short_circuit_rate": 0.13,
+      "calls_per_q": 0.87,
+      "latency": 0.323269214630127
+    },
+    {
+      "window": "50-100",
+      "acc": 0.97,
+      "short_circuit_rate": 0.34,
+      "calls_per_q": 0.66,
+      "latency": 0.2375196075439453
+    },
+    {
+      "window": "100-150",
+      "acc": 0.97,
+      "short_circuit_rate": 0.54,
+      "calls_per_q": 0.46,
+      "latency": 0.15588829040527344
+    },
+    {
+      "window": "150-200",
+      "acc": 1.0,
+      "short_circuit_rate": 0.6,
+      "calls_per_q": 0.4,
+      "latency": 0.15140578508377076
+    },
+    {
+      "window": "200-250",
+      "acc": 1.0,
+      "short_circuit_rate": 0.76,
+      "calls_per_q": 0.24,
+      "latency": 0.08866174459457397
+    },
+    {
+      "window": "250-300",
+      "acc": 1.0,
+      "short_circuit_rate": 0.89,
+      "calls_per_q": 0.11,
+      "latency": 0.0439305853843689
+    },
+    {
+      "window": "300-350",
+      "acc": 0.98,
+      "short_circuit_rate": 0.85,
+      "calls_per_q": 0.15,
+      "latency": 0.06928411483764649
+    },
+    {
+      "window": "350-400",
+      "acc": 1.0,
+      "short_circuit_rate": 0.88,
+      "calls_per_q": 0.12,
+      "latency": 0.0489611005783081
+    }
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "stream_len": 400
+}
