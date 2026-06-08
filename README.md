@@ -2,7 +2,7 @@
 
 A deterministic harness that makes **frozen sub-1-billion-parameter language models** useful on classification **without fine-tuning** — not by strengthening the model, but by **separating known from novel inputs** and routing each to where it is cheapest and most reliable. Known inputs are answered by a non-parametric predictor (embedding kNN / logistic regression) that never calls the LLM; only novel inputs are sent to the LLM. The known/novel decision is made by a **confidence gate** that we validate (mean AUROC 0.83) rather than assume.
 
-The accompanying manuscript ("Cache the Known, Ask Only the Novel: A Confidence-Routed Harness for Sub-1B Language Models") is included as `paper.pdf` / `paper_ieee.pdf` / `paper_access.pdf`.
+The accompanying manuscript is under review at *IEEE Access* and is **not included** in this repository. This release provides the code, experiment runners, and result data so the findings are reproducible.
 
 ## Key Results
 
@@ -29,14 +29,12 @@ The accompanying manuscript ("Cache the Known, Ask Only the Novel: A Confidence-
 ├── experiments/             # exp_*.py (router, comprehensive, scaling, sub1b, ...) + run_*.py drivers
 ├── scripts/                 # fetch_*.py (data), figs.py, build_pandoc_md.py, build_ieee.py, build_access.py
 ├── results/                 # *_results.json — experiment outputs (metrics only)
-├── paper/                   # manuscript: paper.md (source), references.bib, hdr.tex, ieeeaccess.cls
-│   ├── figs/                #   generated figures (PNG)
-│   ├── paper.pdf, paper_ieee.pdf, paper_access.pdf
-│   └── cover_letter.md, cover_letter.pdf
 ├── docs/                    # research notes (findings, harness catalog)
 ├── LICENSE
 └── README.md
 ```
+
+> **Manuscript note.** The paper, its LaTeX/figures, and the cover letter are kept locally (a `paper/` directory) and are **not** part of this release while the manuscript is under review.
 
 Scripts are run **from the repository root**; each experiment/script changes its working
 directory to the repo root automatically, so relative paths (`results/`, `paper/figs/`, `data/`)
@@ -76,12 +74,11 @@ python3 experiments/exp_finetune.py      # cache vs LoRA vs embed+LR
 # ... exp_classcount, exp_external, exp_embedders, exp_seeds, exp_controlled,
 #     exp_cachecontent, exp_failv2_semantic, exp_success_rules, run_online, run_learning_curve
 
-# 3) build the paper (figures -> paper/figs, then LaTeX from paper/)
+# 3) regenerate result figures (PNG)
 python3 scripts/figs.py
-python3 scripts/build_ieee.py            # -> paper/paper_ieee.tex
-python3 scripts/build_access.py          # -> paper/paper_access.tex (official IEEE Access class)
-( cd paper && pdflatex paper_ieee.tex && bibtex paper_ieee && pdflatex paper_ieee.tex && pdflatex paper_ieee.tex )
 ```
+
+> The LaTeX manuscript and its build scripts are not part of this release (paper under review).
 
 ## Local LLM Stack
 

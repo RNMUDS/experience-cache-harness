@@ -43,3 +43,9 @@ tasks/
 
 # Claude Code local state
 .claude/
+
+# Manuscript (under review) — kept local, not published
+paper/
+scripts/build_pandoc_md.py
+scripts/build_ieee.py
+scripts/build_access.py
