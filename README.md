@@ -26,21 +26,21 @@ The accompanying manuscript ("Cache the Known, Ask Only the Novel: A Confidence-
 │   ├── metrics.py            # accuracy, Wilson CI, paired McNemar, macro-F1
 │   ├── dataset.py            # authored Japanese sentiment set + same-theme / LOTO splits
 │   └── task.py, prompt.py, parsing.py, config.py, experiment.py
-├── exp_*.py                  # experiment runners (scaling, router, comprehensive, sub1b, ...)
-├── run_*.py                  # online loop, ablation, learning-curve drivers
-├── fetch_*.py                # dataset fetchers (public benchmarks + Kaggle)
-├── figs.py                   # figure generation
-├── *_results.json            # experiment outputs (metrics only)
-├── figs/                     # generated figures (PNG)
-├── paper.md                  # manuscript source (single source of truth)
-├── build_pandoc_md.py, build_ieee.py, build_access.py   # PDF builders
-├── ieeeaccess.cls            # IEEE Access class file (for paper_access.tex)
-├── references.bib
-├── cover_letter.md / cover_letter.pdf
-├── paper.pdf, paper_ieee.pdf, paper_access.pdf
+├── experiments/             # exp_*.py (router, comprehensive, scaling, sub1b, ...) + run_*.py drivers
+├── scripts/                 # fetch_*.py (data), figs.py, build_pandoc_md.py, build_ieee.py, build_access.py
+├── results/                 # *_results.json — experiment outputs (metrics only)
+├── paper/                   # manuscript: paper.md (source), references.bib, hdr.tex, ieeeaccess.cls
+│   ├── figs/                #   generated figures (PNG)
+│   ├── paper.pdf, paper_ieee.pdf, paper_access.pdf
+│   └── cover_letter.md, cover_letter.pdf
+├── docs/                    # research notes (findings, harness catalog)
 ├── LICENSE
 └── README.md
 ```
+
+Scripts are run **from the repository root**; each experiment/script changes its working
+directory to the repo root automatically, so relative paths (`results/`, `paper/figs/`, `data/`)
+resolve regardless of where you invoke them.
 
 > **Data note.** This repository does **not** redistribute third-party benchmark datasets. The `data/` directory and the response cache (`llm_cache.json`) are git-ignored; run the `fetch_*.py` scripts to obtain the public datasets from their original sources. The authored Japanese set lives in `cache_harness/dataset.py`.
 
@@ -60,26 +60,27 @@ Requires **Python 3.11** and a local **ollama** server. The core library (`cache
 ```bash
 ollama serve                 # in another terminal
 
-# 1) fetch public datasets (not redistributed here)
-python3 fetch_datasets.py    # SST-2, AG News
-python3 fetch_extra.py       # TREC
-python3 fetch_banking.py     # Banking77
-python3 fetch_external.py    # IMDB / Yelp / Emotion / DBpedia / tweet
-python3 fetch_kaggle.py      # Kaggle airline (needs ~/.kaggle/kaggle.json)
+# 1) fetch public datasets (not redistributed here) -> data/
+python3 scripts/fetch_datasets.py    # SST-2, AG News
+python3 scripts/fetch_extra.py       # TREC
+python3 scripts/fetch_banking.py     # Banking77
+python3 scripts/fetch_external.py    # IMDB / Yelp / Emotion / DBpedia / tweet
+python3 scripts/fetch_kaggle.py      # Kaggle airline (needs ~/.kaggle/kaggle.json)
 
-# 2) run experiments (each writes *_results.json)
-python3 exp_router.py        # confidence-gated routing (AUROC, Pareto, oracle)
-python3 exp_comprehensive.py # 11 datasets x 8 sub-1B models (88 cells)
-python3 exp_scaling.py       # cache gain vs model size (0.5B-36B)
-python3 exp_sub1b.py         # 8 sub-1B models
-python3 exp_finetune.py      # cache vs LoRA vs embed+LR
+# 2) run experiments (each writes results/*_results.json)
+python3 experiments/exp_router.py        # confidence-gated routing (AUROC, Pareto, oracle)
+python3 experiments/exp_comprehensive.py # 11 datasets x 8 sub-1B models (88 cells)
+python3 experiments/exp_scaling.py       # cache gain vs model size (0.5B-36B)
+python3 experiments/exp_sub1b.py         # 8 sub-1B models
+python3 experiments/exp_finetune.py      # cache vs LoRA vs embed+LR
 # ... exp_classcount, exp_external, exp_embedders, exp_seeds, exp_controlled,
 #     exp_cachecontent, exp_failv2_semantic, exp_success_rules, run_online, run_learning_curve
 
-# 3) build the paper
-python3 figs.py
-python3 build_ieee.py        # IEEEtran two-column  -> paper_ieee.tex
-python3 build_access.py      # IEEE Access class    -> paper_access.tex
+# 3) build the paper (figures -> paper/figs, then LaTeX from paper/)
+python3 scripts/figs.py
+python3 scripts/build_ieee.py            # -> paper/paper_ieee.tex
+python3 scripts/build_access.py          # -> paper/paper_access.tex (official IEEE Access class)
+( cd paper && pdflatex paper_ieee.tex && bibtex paper_ieee && pdflatex paper_ieee.tex && pdflatex paper_ieee.tex )
 ```
 
 ## Local LLM Stack
